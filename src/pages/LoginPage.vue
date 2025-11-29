@@ -18,7 +18,7 @@ const doLogin = async () => {
 
     setTimeout(() => {
       router.push('/digimon')
-    }, 1200) // 1.2 segundos antes de redirigir
+    }, 1200)
   }
 }
 </script>
@@ -34,10 +34,8 @@ const doLogin = async () => {
 
       <button class="login-btn" @click="doLogin">Ingresar</button>
 
-      <!-- Error -->
       <p v-if="auth.error" class="error-msg">Credenciales incorrectas</p>
 
-      <!-- Éxito -->
       <p v-if="successMessage" class="success-msg">
         {{ successMessage }}
       </p>
