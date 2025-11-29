@@ -5,6 +5,7 @@ import { useRouter } from 'vue-router'
 
 const email = ref('')
 const password = ref('')
+const successMessage = ref('')
 
 const auth = useAuthStore()
 const router = useRouter()
@@ -13,7 +14,11 @@ const doLogin = async () => {
   const ok = await auth.login(email.value, password.value)
 
   if (ok) {
-    router.push('/digimon')
+    successMessage.value = 'Inicio de sesión exitoso 🎉'
+
+    setTimeout(() => {
+      router.push('/digimon')
+    }, 1200) // 1.2 segundos antes de redirigir
   }
 }
 </script>
@@ -29,10 +34,25 @@ const doLogin = async () => {
 
       <button class="login-btn" @click="doLogin">Ingresar</button>
 
+      <!-- Error -->
       <p v-if="auth.error" class="error-msg">Credenciales incorrectas</p>
+
+      <!-- Éxito -->
+      <p v-if="successMessage" class="success-msg">
+        {{ successMessage }}
+      </p>
     </div>
   </div>
 </template>
+
+<style scoped>
+.success-msg {
+  margin-top: 15px;
+  color: #2e7d32;
+  font-weight: bold;
+  font-size: 15px;
+}
+</style>
 
 <style scoped>
 .login-container {
