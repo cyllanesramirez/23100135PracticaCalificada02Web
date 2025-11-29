@@ -41,9 +41,18 @@ onMounted(() => cargarDigimon())
 </script>
 
 <style scoped>
+h1 {
+  font-size: 36px;
+  margin-bottom: 25px;
+  color: #333;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
 .grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 25px;
+  margin-top: 15px;
 }
 </style>

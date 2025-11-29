@@ -30,7 +30,29 @@ const emitFilters = () => {
 <style scoped>
 .filters {
   display: flex;
-  gap: 10px;
-  margin-bottom: 20px;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+input,
+select {
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #bdbdbd;
+  outline: none;
+  transition: border 0.2s;
+}
+
+input:focus,
+select:focus {
+  border-color: #1e88e5;
+}
+
+input {
+  flex: 1;
+}
+
+select {
+  width: 180px;
 }
 </style>
